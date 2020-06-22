@@ -522,7 +522,7 @@ if(ENABLE_MASON)
   include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/third_party/libosmium/include)
 else()
 
-  find_package(Boost 1.54 REQUIRED COMPONENTS ${BOOST_COMPONENTS})
+  find_package(Boost 1.73 REQUIRED COMPONENTS ${BOOST_COMPONENTS})
   add_dependency_includes(${Boost_INCLUDE_DIRS})
   if(WIN32 AND Boost_VERSION VERSION_LESS 106200)
     message(FATAL_ERROR "Building with MSVC needs Boost 1.62 with CXX11_CONSTEXPR support")
