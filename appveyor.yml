@@ -4,7 +4,7 @@ environment:
 #  - configuration: Debug
 
 install:
-  - ps: Install-Product node 6
+  - ps: Install-Product node 8
 
 # scripts that are called at very beginning, before repo cloning
 init:
