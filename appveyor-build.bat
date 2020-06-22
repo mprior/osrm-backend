@@ -10,7 +10,7 @@ ECHO NUMBER_OF_PROCESSORS^: %NUMBER_OF_PROCESSORS%
 
 
 :: Check CMake version
-SET CMAKE_VERSION=3.9.2
+SET CMAKE_VERSION=3.17.3
 SET PATH=%PROJECT_DIR%\cmake-%CMAKE_VERSION%-win32-x86\bin;%PATH%
 ECHO cmake^: && cmake --version
 IF %ERRORLEVEL% NEQ 0 ECHO CMAKE not found && GOTO CMAKE_NOT_OK
@@ -19,7 +19,7 @@ cmake --version | findstr /C:%CMAKE_VERSION% && GOTO CMAKE_OK
 
 :CMAKE_NOT_OK
 ECHO CMAKE NOT OK - downloading new CMake %CMAKE_VERSION%
-powershell Invoke-WebRequest https://cmake.org/files/v3.9/cmake-%CMAKE_VERSION%-win32-x86.zip -OutFile $env:PROJECT_DIR\cm.zip
+powershell Invoke-WebRequest https://cmake.org/files/v3.17/cmake-%CMAKE_VERSION%-win32-x86.zip -OutFile $env:PROJECT_DIR\cm.zip
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 IF NOT EXIST cmake-%CMAKE_VERSION%-win32-x86 7z -y x cm.zip | %windir%\system32\FIND "ing archive"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
