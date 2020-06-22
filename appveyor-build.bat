@@ -52,7 +52,7 @@ IF EXIST %DEPSPKG% DEL %DEPSPKG%
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 ECHO downloading %DEPSPKG%
-powershell Invoke-WebRequest https://app.box.com/s/f5f1xbsoivwmu4vgf2pwvmdlufszdzpg -OutFile $env:PROJECT_DIR\$env:DEPSPKG
+powershell Invoke-WebRequest https://drive.google.com/u/0/uc?id=1BiGRZfTiCG-A2htGqwCxfdd_JmTOBhpb&export=download -OutFile $env:PROJECT_DIR\$env:DEPSPKG
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 :SKIPDL
