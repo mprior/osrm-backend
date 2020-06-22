@@ -40,7 +40,7 @@ ECHO msbuild version
 msbuild /version
 
 :: HARDCODE "x64" as it is uppercase on AppVeyor and download from S3 is case sensitive
-SET DEPSPKG=osrm-deps-win-x64-14.2-2019.01.7z
+SET DEPSPKG=osrm-deps-win-x64-14.2-2020.06.7z
 
 :: local development
 ECHO.
@@ -52,7 +52,7 @@ IF EXIST %DEPSPKG% DEL %DEPSPKG%
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 ECHO downloading %DEPSPKG%
-powershell Invoke-WebRequest https://project-osrm.wolt.com/windows-build-deps/$env:DEPSPKG -OutFile $env:PROJECT_DIR\$env:DEPSPKG
+powershell Invoke-WebRequest https://app.box.com/s/f5f1xbsoivwmu4vgf2pwvmdlufszdzpg -OutFile $env:PROJECT_DIR\$env:DEPSPKG
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 :SKIPDL
