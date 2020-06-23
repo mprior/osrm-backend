@@ -40,7 +40,7 @@ ECHO msbuild version
 msbuild /version
 
 :: HARDCODE "x64" as it is uppercase on AppVeyor and download from S3 is case sensitive
-SET DEPSPKG=osrm-deps-win-x64-14.2-2020.06.7z
+SET DEPSPKG=osrm-deps-win-x64-14.2-2019.01.7z
 
 :: local development
 ECHO.
@@ -52,7 +52,7 @@ IF EXIST %DEPSPKG% DEL %DEPSPKG%
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 ECHO downloading %DEPSPKG%
-powershell "Invoke-WebRequest \"https://drive.google.com/uc?export=download^&id=1BiGRZfTiCG-A2htGqwCxfdd_JmTOBhpb\" -OutFile $env:PROJECT_DIR\$env:DEPSPKG"
+powershell Invoke-WebRequest project-osrm.wolt.com/windows-build-deps/$env:DEPSPKG -OutFile $env:PROJECT_DIR\$env:DEPSPKG
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 :SKIPDL
@@ -75,7 +75,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 SET OSRMDEPSDIR=%PROJECT_DIR%\osrm-deps
 set PREFIX=%OSRMDEPSDIR%\libs
 set BOOST_ROOT=C:\Libraries\boost_1_73_0
-set BOOST_INCLUDEDIR=%OSRMDEPSDIR%\include
+set BOOST_INCLUDEDIR=C:\Libraries\boost_1_73_0\boost
 set BOOST_LIBRARYDIR=C:\Libraries\boost_1_73_0\lib64-msvc-14.0
 set TBB_INSTALL_DIR=%OSRMDEPSDIR%\include\tbb
 set TBB_ARCH_PLATFORM=intel64/vc14
