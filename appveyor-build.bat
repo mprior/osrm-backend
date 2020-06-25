@@ -29,8 +29,8 @@ ECHO CMAKE_OK
 cmake --version
 
 ECHO activating VS command prompt ...
-SET PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
-CALL "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+SET PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;%PATH%
+CALL "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" amd64
 
 ECHO platform^: %platform%
 
@@ -76,7 +76,7 @@ SET OSRMDEPSDIR=%PROJECT_DIR%\osrm-deps
 set PREFIX=%OSRMDEPSDIR%\libs
 set BOOST_ROOT=C:\Libraries\boost_1_73_0
 set BOOST_INCLUDEDIR=C:\Libraries\boost_1_73_0\boost
-set BOOST_LIBRARYDIR=C:\Libraries\boost_1_73_0\lib64-msvc-14.0
+set BOOST_LIBRARYDIR=C:\Libraries\boost_1_73_0\lib64-msvc-14.2
 set TBB_INSTALL_DIR=%OSRMDEPSDIR%\include\tbb
 set TBB_ARCH_PLATFORM=intel64/vc14
 
@@ -90,7 +90,8 @@ ECHO TBB_ARCH_PLATFORM ^: %TBB_ARCH_PLATFORM%
 
 ECHO calling cmake ....
 cmake .. ^
--G "Visual Studio 14 2015 Win64" ^
+-G "Visual Studio 16 2019" ^
+-A x64
 -DBOOST_ROOT=%BOOST_ROOT% ^
 -DBOOST_LIBRARYDIR=%BOOST_LIBRARYDIR% ^
 -DBoost_ADDITIONAL_VERSIONS=1.73.0 ^
