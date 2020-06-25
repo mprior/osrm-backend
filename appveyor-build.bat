@@ -81,6 +81,8 @@ set TBB_INSTALL_DIR=%OSRMDEPSDIR%
 ::set TBB_ARCH_PLATFORM=intel64/vc14
 set EXPAT_LIBRARY=%OSRMDEPSDIR%\lib
 set EXPAT_INCLUDE_DIR=%OSRMDEPSDIR%\include
+set BZIP2_LIBRARIES=%OSRMDEPSDIR%\lib
+set BZIP2_INCLUDE_DIR=%OSRMDEPSDIR%\include
 
 ECHO OSRMDEPSDIR       ^: %OSRMDEPSDIR%
 ECHO PREFIX            ^: %PREFIX%
@@ -102,7 +104,9 @@ cmake .. ^
 -DCMAKE_BUILD_TYPE=%CONFIGURATION% ^
 -DCMAKE_INSTALL_PREFIX=%PREFIX% ^
 -DEXPAT_LIBRARY=%EXPAT_LIBRARY% ^
--DEXPAT_INCLUDE_DIR=%EXPAT_INCLUDE_DIR%
+-DEXPAT_INCLUDE_DIR=%EXPAT_INCLUDE_DIR% ^
+-DZLIB_LIBRARY=%BZIP2_LIBRARIES% ^
+-DZLIB_INCLUDE_DIR=%BZIP2_INCLUDE_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 ECHO building ...
@@ -112,8 +116,8 @@ msbuild OSRM.sln ^
 /t:rebuild ^
 /p:BuildInParallel=true ^
 /m:%NUMBER_OF_PROCESSORS% ^
-/toolsversion:14.0 ^
-/p:PlatformToolset=v140 ^
+/toolsversion:Current ^
+/p:PlatformToolset=v142 ^
 /clp:Verbosity=normal ^
 /nologo ^
 /flp1:logfile=build_errors.txt;errorsonly ^
