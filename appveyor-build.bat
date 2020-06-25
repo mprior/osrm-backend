@@ -77,7 +77,7 @@ set PREFIX=%OSRMDEPSDIR%\libs
 set BOOST_ROOT=C:\Libraries\boost_1_73_0
 set BOOST_INCLUDEDIR=C:\Libraries\boost_1_73_0\boost
 set BOOST_LIBRARYDIR=C:\Libraries\boost_1_73_0\lib64-msvc-14.2
-set TBB_INSTALL_DIR=%OSRMDEPSDIR%\include\tbb
+set TBB_INSTALL_DIR=%OSRMDEPSDIR%
 ::set TBB_ARCH_PLATFORM=intel64/vc14
 
 ECHO OSRMDEPSDIR       ^: %OSRMDEPSDIR%
