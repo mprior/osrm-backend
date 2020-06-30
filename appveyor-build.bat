@@ -100,6 +100,7 @@ ECHO calling cmake ....
 cmake .. ^
 -G "Visual Studio 16 2019" ^
 -A x64 ^
+-DBoost_USE_STATIC_LIBS=ON ^
 -DBoost_DEBUG=ON ^
 -DBOOST_ROOT=%BOOST_ROOT% ^
 -DBOOST_LIBRARYDIR=%BOOST_LIBRARYDIR% ^
